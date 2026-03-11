@@ -136,16 +136,22 @@ export function setCharTimeline(
         .to(character.rotation, { y: 0.4, duration: 1 }, 0)
         .fromTo(".character-model", { x: "0%" }, { x: "-25%", duration: 1 }, 0);
 
-      // Fade out character when WhatIDo section arrives
-      const tMFade = gsap.timeline({
+      // Zoom camera out to show desk character when WhatIDo arrives
+      const tMWhat = gsap.timeline({
         scrollTrigger: {
           trigger: ".whatIDO",
           start: "top 80%",
-          end: "top 20%",
-          scrub: 1,
+          end: "top 10%",
+          scrub: 1.5,
         },
       });
-      tMFade.to(".character-model", { opacity: 0, duration: 1 }, 0);
+      tMWhat
+        .to(camera.position, { z: 70, y: 8.4, duration: 4, ease: "power3.inOut" }, 0)
+        .to(".character-model", { opacity: 1, x: "-12%", duration: 3 }, 0)
+        .to(character.rotation, { y: 0.92, x: 0.12, duration: 3 }, 0)
+        .to(neckBone!.rotation, { x: 0.6, duration: 3 }, 0)
+        .to(monitor.material, { opacity: 1, duration: 1, delay: 1 }, 0)
+        .to(screenLight.material, { opacity: 1, duration: 1, delay: 1.5 }, 0);
 
       // Show what-box-in content
       const tM2 = gsap.timeline({

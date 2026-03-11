@@ -384,12 +384,10 @@
 }
 @media only screen and (max-width: 550px) {
   .whatIDO {
-    /* Maintain horizontal layout on small phones, do NOT override to column */
+    /* Maintain horizontal layout on small phones */
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    /* Dark bg to hide the fixed landing character behind */
-    background-color: var(--backgroundColor);
     position: relative;
     z-index: 10;
   }
