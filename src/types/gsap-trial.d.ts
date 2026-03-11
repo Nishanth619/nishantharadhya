@@ -1,9 +1,3 @@
-declare module 'gsap-trial/SplitText' {
-  const SplitText: any;
-  export { SplitText };
-}
-
-declare module 'gsap-trial/ScrollSmoother' {
-  const ScrollSmoother: any;
-  export { ScrollSmoother };
-}
+// gsap-trial has been replaced with the standard gsap package.
+// SplitText and ScrollSmoother are now included in gsap directly.
+export {};
