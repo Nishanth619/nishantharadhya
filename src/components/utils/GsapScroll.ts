@@ -122,7 +122,7 @@ export function setCharTimeline(
     // Mobile: character is position:fixed so it always stays on screen.
     // Just animate camera + fade out when entering WhatIDo.
     if (character) {
-      // Camera subtle animation as user scrolls through About
+      // Camera + character slide left as user scrolls into About
       const tM1 = gsap.timeline({
         scrollTrigger: {
           trigger: ".about-section",
@@ -133,7 +133,8 @@ export function setCharTimeline(
       });
       tM1
         .to(camera.position, { z: 32, y: 14, duration: 1 }, 0)
-        .to(character.rotation, { y: 0.4, duration: 1 }, 0);
+        .to(character.rotation, { y: 0.4, duration: 1 }, 0)
+        .fromTo(".character-model", { x: "0%" }, { x: "-25%", duration: 1 }, 0);
 
       // Fade out character when WhatIDo section arrives
       const tMFade = gsap.timeline({

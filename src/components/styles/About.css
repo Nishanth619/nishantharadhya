@@ -1,20 +1,26 @@
 .about-section {
   display: flex;
-  /* On mobile: text at the top so character can fit below it */
-  align-items: flex-start;
-  justify-content: left;
+  /* On mobile: text on right so character can slide to the left */
+  align-items: center;
+  justify-content: flex-end;
   position: relative;
   opacity: 1;
   min-height: var(--vh);
-  padding-top: 120px;
   width: var(--cWidth);
   margin: auto;
 }
 .about-me {
   padding: 50px 0px;
   padding-bottom: 0;
-  width: 500px;
+  width: 55%;
   max-width: calc(100% - 15px);
+  /* Ensure text stays on the right and is readable over the character */
+  position: relative;
+  z-index: 9;
+  background: linear-gradient(to left, rgba(5, 8, 16, 0.85) 70%, transparent);
+  padding-left: 12px;
+  padding-right: 4px;
+  border-radius: 4px;
 }
 .about-me h3 {
   font-size: 25px;
@@ -41,6 +47,9 @@
     width: 500px;
     max-width: calc(100% - 70px);
     transform: translateY(0%);
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
   }
   .about-section {
     opacity: 1;
