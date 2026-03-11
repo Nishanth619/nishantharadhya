@@ -119,7 +119,30 @@ export function setCharTimeline(
         .to(character.rotation, { x: -0.04, duration: 2, delay: 1 }, 0);
     }
   } else {
+    // Mobile animations
     if (character) {
+      const tM1 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".landing-container",
+          start: "top top",
+          endTrigger: ".about-section",
+          end: "bottom center",
+          scrub: 1.5,
+          pin: ".character-model",
+        },
+      });
+
+      tM1
+        .to(camera.position, { z: 28, y: 10, duration: 6, ease: "power3.inOut" }, 0)
+        .to(character.rotation, { y: 0.92, duration: 5, delay: 1 }, 0)
+        .to(neckBone!.rotation, { x: 0.6, duration: 4, delay: 1 }, 0)
+        .fromTo(
+          ".character-rim",
+          { opacity: 1 },
+          { opacity: 0, duration: 2, delay: 0 },
+          0
+        );
+
       const tM2 = gsap.timeline({
         scrollTrigger: {
           trigger: ".what-box-in",
