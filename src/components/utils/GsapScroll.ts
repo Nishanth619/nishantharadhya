@@ -119,30 +119,34 @@ export function setCharTimeline(
         .to(character.rotation, { x: -0.04, duration: 2, delay: 1 }, 0);
     }
   } else {
-    // Mobile animations
+    // Mobile: character is position:fixed so it always stays on screen.
+    // Just animate camera + fade out when entering WhatIDo.
     if (character) {
+      // Camera subtle animation as user scrolls through About
       const tM1 = gsap.timeline({
         scrollTrigger: {
-          trigger: ".landing-container",
-          start: "top top",
-          endTrigger: ".what-box-in",
-          end: "top 60%",
-          scrub: 1.5,
-          pin: ".character-model",
+          trigger: ".about-section",
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: 1,
         },
       });
-
       tM1
-        .to(camera.position, { z: 32, y: 14, duration: 6, ease: "power3.inOut" }, 0)
-        .to(character.rotation, { y: 0.92, duration: 5, delay: 1 }, 0)
-        .to(neckBone!.rotation, { x: 0.6, duration: 4, delay: 1 }, 0)
-        .fromTo(
-          ".character-rim",
-          { opacity: 1 },
-          { opacity: 0, duration: 2, delay: 0 },
-          0
-        );
+        .to(camera.position, { z: 32, y: 14, duration: 1 }, 0)
+        .to(character.rotation, { y: 0.4, duration: 1 }, 0);
 
+      // Fade out character when WhatIDo section arrives
+      const tMFade = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".whatIDO",
+          start: "top 80%",
+          end: "top 20%",
+          scrub: 1,
+        },
+      });
+      tMFade.to(".character-model", { opacity: 0, duration: 1 }, 0);
+
+      // Show what-box-in content
       const tM2 = gsap.timeline({
         scrollTrigger: {
           trigger: ".what-box-in",
