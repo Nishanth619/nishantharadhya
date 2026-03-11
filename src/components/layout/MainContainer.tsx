@@ -18,14 +18,28 @@ const MainContainer = ({ children }: PropsWithChildren) => {
   );
 
   useEffect(() => {
+    const setVh = () => {
+      const h = window.visualViewport
+        ? window.visualViewport.height
+        : window.innerHeight;
+      document.documentElement.style.setProperty("--vh", `${h}px`);
+    };
+    setVh();
+    window.visualViewport?.addEventListener("resize", setVh);
+    window.visualViewport?.addEventListener("scroll", setVh);
+    window.addEventListener("resize", setVh);
     const resizeHandler = () => {
       setSplitText();
       setIsDesktopView(window.innerWidth > 1024);
+      setVh();
     };
     resizeHandler();
     window.addEventListener("resize", resizeHandler);
     return () => {
       window.removeEventListener("resize", resizeHandler);
+      window.removeEventListener("resize", setVh);
+      window.visualViewport?.removeEventListener("resize", setVh);
+      window.visualViewport?.removeEventListener("scroll", setVh);
     };
   }, [isDesktopView]);
 

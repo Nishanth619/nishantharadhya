@@ -15,7 +15,7 @@ export default function handleResize(
   renderer.setSize(width, height);
   camera.aspect = width / height;
   
-  const isMobile = window.innerWidth < 768;
+  const isMobile = window.innerWidth < 768 || (window.innerHeight < 500 && window.innerWidth < 1000);
   camera.position.set(0, isMobile ? 14.5 : 13.1, isMobile ? 32 : 24.7);
   camera.zoom = isMobile ? 0.85 : 1.1;
   

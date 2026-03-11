@@ -52,9 +52,5 @@
   }
 }
 
-/* Show only on mobile devices in portrait orientation */
-@media screen and (max-width: 900px) and (orientation: portrait) {
-  .landscape-lock {
-    display: flex;
-  }
-}
+/* Show only in landscape mode on very small screens where the experience is broken */
+/* Portrait mode is now supported for all screen sizes */
