@@ -384,9 +384,14 @@
 }
 @media only screen and (max-width: 550px) {
   .whatIDO {
-    place-items: inherit;
-    align-items: start;
-    justify-content: left;
+    /* Maintain horizontal layout on small phones, do NOT override to column */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* Dark bg to hide the fixed landing character behind */
+    background-color: var(--backgroundColor);
+    position: relative;
+    z-index: 10;
   }
   .what-box {
     max-width: calc(100% - 25px);
