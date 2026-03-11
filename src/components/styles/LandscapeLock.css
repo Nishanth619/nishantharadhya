@@ -1,0 +1,60 @@
+.landscape-lock {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--backgroundColor);
+  z-index: 99999;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #eae5ec;
+}
+
+.landscape-lock-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.rotation-icon {
+  font-size: 60px;
+  color: var(--accentColor);
+  animation: rotatePhone 2s infinite ease-in-out;
+}
+
+.landscape-lock h2 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.landscape-lock p {
+  font-size: 16px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+@keyframes rotatePhone {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+/* Show only on mobile devices in portrait orientation */
+@media screen and (max-width: 900px) and (orientation: portrait) {
+  .landscape-lock {
+    display: flex;
+  }
+}
