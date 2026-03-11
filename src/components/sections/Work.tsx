@@ -47,13 +47,6 @@ const projects = [
     image: `${import.meta.env.BASE_URL}images/focushub.jpg`,
     playStoreLink: "#",
   },
-  {
-    title: "FrameCraft Studio",
-    category: "Animation Creator",
-    tools: "Flutter, FFmpeg, CustomPainter",
-    image: `${import.meta.env.BASE_URL}images/pdfgen.jpg`,
-    playStoreLink: "#",
-  },
 ];
 
 const Work = () => {
