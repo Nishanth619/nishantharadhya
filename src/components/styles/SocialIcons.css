@@ -101,3 +101,11 @@ div.resume-button span {
     margin-top: -1.5px;
   }
 }
+
+@media only screen and (max-height: 500px) and (orientation: landscape) {
+  .resume-button {
+    transform: scale(0.8);
+    transform-origin: right bottom;
+    bottom: 20px;
+  }
+}
