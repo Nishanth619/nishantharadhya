@@ -1,11 +1,12 @@
 .about-section {
   display: flex;
-  align-items: center;
+  /* On mobile: text at the top so character can fit below it */
+  align-items: flex-start;
   justify-content: left;
-  place-items: center;
   position: relative;
   opacity: 1;
-  height: auto;
+  min-height: var(--vh);
+  padding-top: 120px;
   width: var(--cWidth);
   margin: auto;
 }
@@ -43,6 +44,8 @@
   }
   .about-section {
     opacity: 1;
+    align-items: center;
+    padding-top: 0;
   }
   .about-me p {
     font-size: 20px;

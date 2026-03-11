@@ -125,15 +125,15 @@ export function setCharTimeline(
         scrollTrigger: {
           trigger: ".landing-container",
           start: "top top",
-          endTrigger: ".about-section",
-          end: "bottom center",
+          endTrigger: ".what-box-in",
+          end: "top 60%",
           scrub: 1.5,
           pin: ".character-model",
         },
       });
 
       tM1
-        .to(camera.position, { z: 28, y: 10, duration: 6, ease: "power3.inOut" }, 0)
+        .to(camera.position, { z: 32, y: 14, duration: 6, ease: "power3.inOut" }, 0)
         .to(character.rotation, { y: 0.92, duration: 5, delay: 1 }, 0)
         .to(neckBone!.rotation, { x: 0.6, duration: 4, delay: 1 }, 0)
         .fromTo(
