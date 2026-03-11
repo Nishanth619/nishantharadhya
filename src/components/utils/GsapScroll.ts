@@ -162,6 +162,20 @@ export function setCharTimeline(
         },
       });
       tM2.to(".what-box-in", { display: "flex", duration: 0.1, delay: 0 }, 0);
+
+      // Exit: hide character when scrolling into Career section so it doesn't interfere
+      const tMExit = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".career-section",
+          start: "top 90%",
+          end: "top 50%",
+          scrub: 1,
+        },
+      });
+      tMExit
+        .to(".character-model", { opacity: 0, x: "0%", duration: 1 }, 0)
+        .to(monitor.material, { opacity: 0, duration: 0.5 }, 0)
+        .to(screenLight.material, { opacity: 0, duration: 0.5 }, 0);
     }
   }
 }
