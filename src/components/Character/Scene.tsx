@@ -38,9 +38,10 @@ const Scene = () => {
       canvasDiv.current.appendChild(renderer.domElement);
 
       const camera = new THREE.PerspectiveCamera(14.5, aspect, 0.1, 1000);
+      const isMobile = window.innerWidth < 768;
       camera.position.z = 10;
-      camera.position.set(0, 13.1, 24.7);
-      camera.zoom = 1.1;
+      camera.position.set(0, isMobile ? 14.5 : 13.1, isMobile ? 32 : 24.7);
+      camera.zoom = isMobile ? 0.85 : 1.1;
       camera.updateProjectionMatrix();
 
       let headBone: THREE.Object3D | null = null;
